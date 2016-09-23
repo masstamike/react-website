@@ -1,4 +1,4 @@
 ReactDOM.render(
-    React.createElement(Main, null),
+    <Main/>,
     document.getElementById("react-main")
 );

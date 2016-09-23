@@ -13,7 +13,7 @@ var Body = React.createClass({
         return (
             <div>
                 <ul className="nav nav-tabs"></ul>
-                //React.createElement(Tabs, null)
+                {/*React.createElement(Tabs, null)*/}
             </div>
         );
     }
