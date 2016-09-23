@@ -1,0 +1,36 @@
+<!-- DOCTYPE html -->
+<html>
+<head>
+    <title>Michael Sawyer</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <script src="scripts/controllers/controllers.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+</head>
+<body ng-app="homeApp" ng-controller="HomePageController as ctrl">
+<div id="main">
+    <h1>Welcome to Michael A. Sawyer's Webpage</h1>
+    <ul class="nav nav-tabs">
+        <li ng-class="{active:ctrl.active === 1}">
+            <a ng-click="ctrl.setActive(1)" data-toggle="tab">About
+            </a>
+        </li>
+        <li ng-class="{active:ctrl.active === 2}">
+            <a ng-click="ctrl.setActive(2)" data-toggle="tab">Beer</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div ng-view=""></div>
+    </div>
+    <div id="footer">
+        <div class="center">
+            Questions or comments? Send them to
+            <a href="mailto:michaelsawyer92@gmail.com">Michael Sawyer</a><br>
+            <a href="/Resume.pdf">Resume</a> |
+            <a href="/RecLetter.pdf">
+                Letter of Recommendation</a> |
+            <a href="http://www.linkedin.com/in/michaelasawyer">LinkedIn</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

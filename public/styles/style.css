@@ -1,0 +1,9 @@
+p {
+    padding-left: 40px;
+    color: red;
+    background-color: whitesmoke;
+}
+
+div > div.center {
+    margin: 0 auto;
+}
