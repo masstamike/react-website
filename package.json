@@ -1,7 +1,17 @@
 {
   "name": "michaels-webpage",
+  "description": "My personal website",
+  "version": "1.0.0",
+  "license": "MIT",
   "main": "server.js",
+  "scripts": {
+    "build": "babel public/react/js -d public/react/lib --presets react"
+  },
   "dependencies": {
     "express": "~4.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-react": "^6.11.1"
   }
 }
