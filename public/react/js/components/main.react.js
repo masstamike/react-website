@@ -11,10 +11,10 @@ var Body = React.createClass({
 
     render: function() {
 
-        var tabsList = this.props.tabs.map(function(tab) {
+        var tabsList = this.props.tabs.map(function(tab, key) {
             return (
-                <li>
-                    <a>{tab}</a>
+                <li key={key}>
+                    <a key={key}>{tab}</a>
                 </li>
             );
         });
@@ -50,7 +50,7 @@ var Main = React.createClass({
     
     render: function() {
 
-        var tabs = ["About", "Beer"];
+        var tabs = ["About","Beer"];
 
         console.log("Building the website...");
         
