@@ -53,6 +53,8 @@ var Body = React.createClass({
             return "tab" + key;
         }
 
+        var parentCallback = this.props.callbackParent;
+
         var tabsList = this.props.tabs.map(function(tab, key) {
             var _switchTab = function(key) {
                 var listItems = key.target.parentElement.parentElement.childNodes;
@@ -60,7 +62,11 @@ var Body = React.createClass({
                     item.className='';
                 });
                 key.target.parentElement.className = "active";
-                console.log(key.target.id);
+                if (key.target.id === 'tab0') {
+                    parentCallback({content:'AboutTheAuthor'});
+                } else {
+                    parentCallback({content:'BeerJournal'});
+                }
             };
            
             if (key === 0) {
@@ -106,6 +112,16 @@ var Footer = React.createClass({
 });
 
 var Main = React.createClass({
+
+    getInitialState: function() {
+        return {
+            content: "AboutTheAuthor"
+        };
+    },
+
+    childChanged: function(state) {
+        this.setState(state);
+    },
     
     render: function() {
 
@@ -120,16 +136,28 @@ var Main = React.createClass({
             }
         ];
 
-        return (
-            <div>
-                <Header/>
-                <Body tabs={tabs}/>
-                <div id="myTabContent">
-                    <AboutTheAuthor/>
+        if (this.state.content === "AboutTheAuthor") {
+            return (
+                <div>
+                    <Header/>
+                    <Body tabs={tabs} callbackParent={this.childChanged}/>
+                    <div id="myTabContent">
+                        <AboutTheAuthor callbackParent={this.childChanged}/>
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </div>
-        );
+            );
+        } else if (this.state.content === "BeerJournal") {
+            return (
+                <div>
+                    <Header/>
+                    <Body tabs={tabs} callbackParent={this.childChanged}/>
+                    <div id="myTabContent">
+                        <BeerJournal callbackParent={this.childChanged}/>
+                    </div>
+                    <Footer/>
+                </div>
+            );
+        }
     }
-    
 });
